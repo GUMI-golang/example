@@ -13,8 +13,8 @@ import (
 
 
 func main() {
-	flag.Set("size", "XGA")
-	flag.Set("example", "debug(FPSResolutions).HelloImage")
+	flag.Set("size", "HD")
+	flag.Set("example", "debug(FPS).Modal")
 	//
 	var err error
 	gcore.Assert(common.CheckFlags())
@@ -27,6 +27,7 @@ func main() {
 	wnd := SDL2Window(width, height)
 	ctx, err := sdl.GLCreateContext(wnd)
 	gcore.Assert(err)
+	sdl.GLSetSwapInterval(0)
 	defer sdl.GLDeleteContext(ctx)
 	//
 	common.GLInit()
@@ -48,7 +49,7 @@ func main() {
 	lumi := glumi.NewGLUMI()
 	lumi.SetScreen(scr)
 	// glumi Initalize
-	gcore.Assert(lumi.Init(0))
+	gcore.Assert(lumi.Init(30))
 	// Main Loop
 	lumi.Loop(
 		// Event Process, GL Clearing

@@ -12,6 +12,7 @@ var (
 		HelloButton,
 		HelloImage,
 		Buttons,
+		Modal,
 	}
 	names []string
 )
