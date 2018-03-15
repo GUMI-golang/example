@@ -14,11 +14,7 @@ import (
 
 func main() {
 	flag.Set("size", "HD")
-<<<<<<< Updated upstream
-	flag.Set("example", "debug(FPS).Editing")
-=======
-	flag.Set("example", "debug.HelloImage")
->>>>>>> Stashed changes
+	flag.Set("example", "debug(FPS).Dropbox")
 	//
 	var err error
 	gcore.Must(common.CheckFlags())
@@ -30,11 +26,7 @@ func main() {
 	// Make SDL OpenGL Window
 	wnd := SDL2Window(width, height)
 	ctx, err := sdl.GLCreateContext(wnd)
-<<<<<<< Updated upstream
 	gcore.Must(err)
-=======
-	gcore.Assert(err)
->>>>>>> Stashed changes
 	sdl.GLSetSwapInterval(0)
 	defer sdl.GLDeleteContext(ctx)
 	sdl.StartTextInput()
@@ -58,11 +50,7 @@ func main() {
 	lumi := glumi.NewGLUMI()
 	lumi.SetScreen(scr)
 	// glumi Initalize
-<<<<<<< Updated upstream
 	gcore.Must(lumi.Init(0))
-=======
-	gcore.Assert(lumi.Init(300))
->>>>>>> Stashed changes
 	// Main Loop
 	lumi.Loop(
 		// Event Process, GL Clearing

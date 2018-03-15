@@ -17,6 +17,7 @@ var (
 		Radios,
 		Toggles,
 		Editing,
+		Dropbox,
 	}
 	names []string
 )
