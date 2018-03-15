@@ -13,6 +13,10 @@ var (
 		HelloImage,
 		Buttons,
 		Modal,
+		Progress,
+		Radios,
+		Toggles,
+		Editing,
 	}
 	names []string
 )

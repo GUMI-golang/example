@@ -14,10 +14,10 @@ import (
 
 func main() {
 	flag.Set("size", "HD")
-	flag.Set("example", "debug(FPS).Modal")
+	flag.Set("example", "debug(FPS).Editing")
 	//
 	var err error
-	gcore.Assert(common.CheckFlags())
+	gcore.Must(common.CheckFlags())
 	var width, height = common.GetSize()
 	var example = common.GetExample()
 	// common Init
@@ -26,9 +26,10 @@ func main() {
 	// Make SDL OpenGL Window
 	wnd := SDL2Window(width, height)
 	ctx, err := sdl.GLCreateContext(wnd)
-	gcore.Assert(err)
+	gcore.Must(err)
 	sdl.GLSetSwapInterval(0)
 	defer sdl.GLDeleteContext(ctx)
+	sdl.StartTextInput()
 	//
 	common.GLInit()
 	common.GUMIInit()
@@ -49,7 +50,7 @@ func main() {
 	lumi := glumi.NewGLUMI()
 	lumi.SetScreen(scr)
 	// glumi Initalize
-	gcore.Assert(lumi.Init(30))
+	gcore.Must(lumi.Init(0))
 	// Main Loop
 	lumi.Loop(
 		// Event Process, GL Clearing
@@ -76,7 +77,7 @@ func main() {
 
 func SDL2Window(w, h int) *sdl.Window {
 	var disp sdl.DisplayMode
-	gcore.Assert(sdl.GetDesktopDisplayMode(0, &disp))
+	gcore.Must(sdl.GetDesktopDisplayMode(0, &disp))
 	var windW, windH int32
 	if int32(w) > disp.W {
 		windW = disp.W
@@ -91,6 +92,6 @@ func SDL2Window(w, h int) *sdl.Window {
 	wnd, err := sdl.CreateWindow("GUMI", sdl.WINDOWPOS_CENTERED, sdl.WINDOWPOS_CENTERED, windW, windH,
 		sdl.WINDOW_OPENGL,
 	)
-	gcore.Assert(err)
+	gcore.Must(err)
 	return wnd
 }

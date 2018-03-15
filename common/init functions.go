@@ -24,7 +24,7 @@ func GLInit() {
 	gl.ClearColor(1.0, 1.0, 1.0, 1.0)
 }
 func SDL2Init() {
-	gcore.Assert(sdl.Init(sdl.INIT_EVERYTHING))
+	gcore.Must(sdl.Init(sdl.INIT_EVERYTHING))
 
 	sdl.GLSetAttribute(sdl.GL_CONTEXT_MAJOR_VERSION, 4)
 	sdl.GLSetAttribute(sdl.GL_CONTEXT_MINOR_VERSION, 1)

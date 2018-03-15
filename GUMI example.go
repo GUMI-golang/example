@@ -14,7 +14,7 @@ func main() {
 	flag.Set("size", "VGA")
 	flag.Set("example", "HelloImage")
 
-	gcore.Assert(common.CheckFlags())
+	gcore.Must(common.CheckFlags())
 	var width, height = common.GetSize()
 	var example = common.GetExample()
 	//
