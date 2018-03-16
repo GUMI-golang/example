@@ -19,7 +19,7 @@ func Modal() gumi.GUMI {
 	return gumi.LinkingFrom(
 		gumi.NBackground0(gumi.Material.Pallette.BackgroundDrawer()),
 		modal,
-		gumi.NClicker0(func(self *gumi.NClicker) {
+		gumi.NEventer1(func(self *gumi.NEventer) {
 			modal.SetShow(true)
 		}),
 		gumi.Tool.MarginMinRegular(10,

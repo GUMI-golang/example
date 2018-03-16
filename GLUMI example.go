@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"github.com/GUMI-golang/example/common"
 	"github.com/GUMI-golang/glumi"
@@ -8,19 +9,18 @@ import (
 	"github.com/GUMI-golang/gumi/gcore"
 	"github.com/go-gl/gl/all-core/gl"
 	"github.com/veandco/go-sdl2/sdl"
-	"flag"
 )
-
 
 func main() {
 	flag.Set("size", "HD")
-	flag.Set("example", "debug(FPS).Dropbox")
+	flag.Set("example", "debug(FPS).Color")
 	//
 	var err error
 	gcore.Must(common.CheckFlags())
 	var width, height = common.GetSize()
 	var example = common.GetExample()
 	// common Init
+
 	common.GoRuntimeInit()
 	common.SDL2Init()
 	// Make SDL OpenGL Window
@@ -30,6 +30,7 @@ func main() {
 	sdl.GLSetSwapInterval(0)
 	defer sdl.GLDeleteContext(ctx)
 	sdl.StartTextInput()
+	//sdl.ShowCursor(sdl.DISABLE)
 	//
 	common.GLInit()
 	common.GUMIInit()
@@ -72,7 +73,6 @@ func main() {
 			sdl.GLSwapWindow(wnd)
 			return nil
 		},
-
 	)
 
 }

@@ -1,14 +1,13 @@
 package main
 
 import (
-	"github.com/GUMI-golang/gumi/gcore"
 	"fmt"
+	"github.com/fogleman/gg"
+	"github.com/GUMI-golang/gumi/gcore"
 )
 
 func main() {
 
-	for i := 0; i <= 100; i ++{
-		fmt.Println(gcore.Animation.Functions.Cubic.EasingOut(float64(i) / 100))
-	}
-
+	r, radian := gcore.ToPolar(1,-1)
+	fmt.Println(r, gg.Degrees(radian), radian)
 }

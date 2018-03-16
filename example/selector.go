@@ -18,6 +18,7 @@ var (
 		Toggles,
 		Editing,
 		Dropbox,
+		Color,
 	}
 	names []string
 )
